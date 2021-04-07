@@ -1,17 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Hero, HeroUniverse } from '../hero';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+import { Hero, HeroUniverse } from '../hero';
 import { HeroService } from '../hero.service';
+import { Location } from '@angular/common';
+
 
 @Component({
-  selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.css']
+  selector: 'app-hero-edit',
+  templateUrl: './hero-edit.component.html',
+  styleUrls: ['./hero-edit.component.css']
 })
-export class HeroDetailComponent implements OnInit {
-
+export class HeroEditComponent implements OnInit {
+    
   hero: Hero = {id:0,name:"",imageUrl:"", universe:HeroUniverse.DC, description:""};
+  heroUniverses: Array<HeroUniverse> = [HeroUniverse.DC, HeroUniverse.MARVEL]
 
   constructor(
     private route: ActivatedRoute,
