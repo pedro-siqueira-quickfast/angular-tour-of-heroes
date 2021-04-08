@@ -1,7 +1,19 @@
-<h1>{{title}}</h1>
-<nav>
-    <a routerLink="/dashboard">Dashboard</a>
-    <a routerLink="/heroes">Heroes</a>
-</nav>
+<mat-toolbar>
+    <h1>Tour of Heroes</h1>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Main menu button">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+        <button routerLink="/dashboard" mat-menu-item>
+            <span>Dashboard</span>
+        </button>
+        <button routerLink="/heroes" mat-menu-item>
+            <span>Heroes</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>
+
 <router-outlet></router-outlet>
+
 <app-messages></app-messages>

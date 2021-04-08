@@ -1,7 +1,17 @@
 <h2>Top Heroes</h2>
 <div class="heroes-menu">
-  <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
-    {{hero.name}}
-  </a>
+  <mat-card *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}" class="hero-card">
+    <mat-card-header>
+        <mat-card-title>{{hero.name}}</mat-card-title>
+        <mat-card-subtitle>{{hero.universe | uppercase}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-img src="{{hero.imageUrl}}">
+    <mat-card-content>
+      <h2>
+        {{hero.description}}
+      </h2>
+    </mat-card-content>
+  </mat-card>
 </div>
+
 <app-hero-search></app-hero-search>
