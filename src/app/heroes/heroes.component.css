@@ -12,3 +12,8 @@ mat-form-field {
   margin: .5rem;
   width: 100%;
 }
+
+.add-button {
+  display: grid;
+  justify-content: center;
+}

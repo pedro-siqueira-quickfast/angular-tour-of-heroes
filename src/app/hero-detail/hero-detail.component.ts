@@ -11,7 +11,7 @@ import { HeroService } from '../hero.service';
 })
 export class HeroDetailComponent implements OnInit {
 
-  hero: Hero = {id:0,name:"",imageUrl:"", universe:HeroUniverse.DC, description:""};
+  hero!: Hero;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +24,7 @@ export class HeroDetailComponent implements OnInit {
   }
 
   getHero(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!;
+    const id = this.route.snapshot.paramMap.get('id')!;
     this.heroService.getHero(id).subscribe(hero => this.hero = hero);
   }
 

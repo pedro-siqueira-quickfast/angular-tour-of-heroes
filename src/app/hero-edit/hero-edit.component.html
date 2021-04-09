@@ -1,3 +1,10 @@
+<app-hero-form *ngIf="hero"
+    [hero]="hero"
+    (heroSaved)="onSaved()"
+    (goBack)="onGoBack()" >
+</app-hero-form>
+
+<!-- 
 <mat-card class="hero-edit-card" *ngIf="hero">
     <mat-card-header>
         <mat-card-title>{{hero.name | uppercase}}</mat-card-title>
@@ -32,3 +39,4 @@
         <button mat-raised-button color="primary" (click)="save()">Save</button>
     </mat-card-actions>
 </mat-card>
+-->
