@@ -42,12 +42,8 @@ export class HeroFormComponent implements OnInit {
   save(): void {
     let hero: Hero = this.heroForm.value;
     if (hero.id) { 
-      console.log(hero.id);
-      console.log(hero);
       this.heroService.updateHero(hero).subscribe(() => this.heroSaved.emit());
     } else {
-      console.log(hero.id);
-      console.log(hero);
       this.heroService.addHero(hero).subscribe(()=> this.heroSaved.emit());
     }
   }

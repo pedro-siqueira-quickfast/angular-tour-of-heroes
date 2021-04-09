@@ -16,9 +16,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
-//import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-//import { InMemoryDataService } from './in-memory-data.service';
-
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
@@ -29,6 +26,7 @@ import { HeroEditComponent } from './hero-edit/hero-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeroNewComponent } from './hero-new/hero-new.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 @NgModule({
   declarations: [
@@ -45,12 +43,6 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
   imports: [
     ReactiveFormsModule,
     HttpClientModule,
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
-    //HttpClientInMemoryWebApiModule.forRoot(
-    //  InMemoryDataService, { dataEncapsulation: false }
-    //),
     BrowserModule,
     FormsModule,
     AppRoutingModule,
@@ -65,7 +57,8 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     MatTabsModule,
     MatMenuModule,
     MatListModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    InfiniteScrollModule
   ],
   providers: [FormBuilder],
   bootstrap: [AppComponent]

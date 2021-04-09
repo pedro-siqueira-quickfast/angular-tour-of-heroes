@@ -1,19 +1,40 @@
 /* HeroesComponent's private CSS styles */
+.header {
+  display: flex;
+  padding: 0 2rem;
+  align-items: center;
+}
+
 h2 {
   text-align: center;
   margin: .5rem;
+  flex: 5;
+}
+
+h3 {
+  margin: 0;
+}
+
+h5 {
+  max-width:80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 mat-nav-list {
   margin: .5rem;
 }
 
-mat-form-field {
-  margin: .5rem;
-  width: 100%;
+mat-nav-list a {
+  height: auto;
+  padding: 10px;
 }
 
-.add-button {
-  display: grid;
-  justify-content: center;
+.hero-list-item-image{
+  width: 70px;
+  height: 70px;
+  float: left;
+  margin-right: .5rem;
+  border-radius: 50%;
 }

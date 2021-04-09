@@ -7,11 +7,10 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { Hero, HeroGetResponse } from './hero';
 import { MessageService } from './message.service';
 
-
 @Injectable({ providedIn: 'root' })
 export class HeroService {
 
-  private heroesUrl = 'http://api-default-309921.rj.r.appspot.com/';  // URL to web api
+  private heroesUrl = 'https://api-default-309921.rj.r.appspot.com/';  // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -22,8 +21,8 @@ export class HeroService {
     private messageService: MessageService) { }
 
   /** GET heroes from the server */
-  getHeroes(): Observable<HeroGetResponse> {
-    return this.http.get<HeroGetResponse>(`${this.heroesUrl}/heroes`)
+  getHeroes(cursor?: string): Observable<HeroGetResponse> {
+    return this.http.get<HeroGetResponse>(`${this.heroesUrl}/heroes?cursor=${cursor || ''}`)
       .pipe(
         tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<HeroGetResponse>('getHeroes', {heroes: [], cursor: ''}))

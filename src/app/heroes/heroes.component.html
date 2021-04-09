@@ -1,15 +1,22 @@
-<h2>My Heroes</h2>
-<mat-nav-list>
-  <a mat-list-item *ngFor="let hero of heroes">
-    <span matLine routerLink="/detail/{{hero.id}}">{{hero.name}}</span>
+<div class="header">
+  <h2>My Heroes</h2>
+  <div class="add-button">
+    <button mat-flat-button color="primary" aria-label="Add new Hero" routerLink="/new">
+      <mat-icon>person_add</mat-icon>
+    </button>
+  </div>
+</div>
+
+<mat-nav-list infiniteScroll (scrolled)="onScrollDown()">
+  <a mat-list-item *ngFor="let hero of heroes">  
+    <div matLine routerLink="/edit/{{hero.id}}">
+      <img src="{{hero.imageUrl}}" alt="Hero Photo" class="hero-list-item-image">
+      <h3>{{hero.name}}</h3>
+      <h5>{{hero.description}}</h5>
+    </div>
+
     <button mat-stroked-button (click)="delete(hero)">
       <mat-icon>delete</mat-icon>
     </button>
   </a>
 </mat-nav-list>
-
-<div class="add-button">
-  <button mat-fab color="accent" aria-label="Add new Hero" routerLink="/new">
-    <mat-icon>add</mat-icon>
-  </button>
-</div>

@@ -23,7 +23,7 @@ export class HeroNewComponent implements OnInit {
   }
 
   onSaved() {
-  //  this.location.back();
+    this.onGoBack();
   }
 
 }

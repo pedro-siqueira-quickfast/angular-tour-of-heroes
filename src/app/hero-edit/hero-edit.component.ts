@@ -34,6 +34,6 @@ export class HeroEditComponent implements OnInit {
   }
 
   onSaved(): void {
-  //  this.location.back();
+    this.onGoBack();
   }
 }
