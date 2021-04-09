@@ -2,8 +2,8 @@
     <form [formGroup]="heroForm" (ngSubmit)="save()">
         <mat-card class="hero-edit-card">
             <mat-card-header>
-                <mat-card-title>{{hero.name | uppercase}} - ID: {{hero.id}}</mat-card-title>
-                <mat-card-subtitle>ID: {{hero.id}}</mat-card-subtitle>
+                <mat-card-title>{{ hero.name ? hero.name : 'Create New Hero' }} </mat-card-title>
+                <mat-card-subtitle *ngIf="hero.id">ID: {{hero.id}}</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <mat-form-field class="full-width">
