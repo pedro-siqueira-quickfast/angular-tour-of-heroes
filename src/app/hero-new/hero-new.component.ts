@@ -18,11 +18,11 @@ export class HeroNewComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onGoBack() {
+  onGoBack(): void {
     this.location.back();
   }
 
-  onSaved() {
+  onSaved(): void {
     this.onGoBack();
   }
 

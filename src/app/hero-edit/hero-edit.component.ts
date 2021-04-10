@@ -11,8 +11,8 @@ import { Location } from '@angular/common';
   styleUrls: ['./hero-edit.component.css']
 })
 export class HeroEditComponent implements OnInit {
-    
-  hero!: Hero;
+
+  hero: Hero = {} as Hero;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,8 +25,10 @@ export class HeroEditComponent implements OnInit {
   }
 
   getHero(): void {
-    const id = this.route.snapshot.paramMap.get('id')!;
-    this.heroService.getHero(id).subscribe(hero => this.hero = hero);
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id){
+      this.heroService.getHero(id).subscribe(hero => this.hero = hero);
+    }
   }
 
   onGoBack(): void {

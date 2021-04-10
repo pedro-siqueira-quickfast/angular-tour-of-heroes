@@ -32,7 +32,7 @@ export class HeroFormComponent implements OnInit {
       description: [this.hero.description, [Validators.minLength(3)]],
       imageUrl: [this.hero.imageUrl, [Validators.required, Validators.pattern(/(https?:\/\/.*\.(?:png|jpg))/i)]],
       universe: [this.hero.universe, [Validators.required]]
-    })
+    });
   }
 
   onGoBack(): void {
@@ -40,11 +40,11 @@ export class HeroFormComponent implements OnInit {
   }
 
   save(): void {
-    let hero: Hero = this.heroForm.value;
-    if (hero.id) { 
+    const hero: Hero = this.heroForm.value;
+    if (hero.id) {
       this.heroService.updateHero(hero).subscribe(() => this.heroSaved.emit());
     } else {
-      this.heroService.addHero(hero).subscribe(()=> this.heroSaved.emit());
+      this.heroService.addHero(hero).subscribe(() => this.heroSaved.emit());
     }
   }
 }
